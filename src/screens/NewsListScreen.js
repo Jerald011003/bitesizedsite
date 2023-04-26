@@ -41,9 +41,9 @@ function NewsListScreen({ history }) {
 
   return (
     <div>
-      <SearchBox submitHandler={submitHandler} />
+      {/* <SearchBox submitHandler={submitHandler} /> */}
       <br/>
-      {!keyword && <NewsCarousel />}
+      {/* {!keyword && <NewsCarousel />} */}
       {/* <Sport /> */}
       {/* <News /> */}
       {newsLoading ? (

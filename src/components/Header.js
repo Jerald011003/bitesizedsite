@@ -19,6 +19,7 @@ import { listProductDetails, createProductReview } from '../actions/productActio
 import { PRODUCT_CREATE_REVIEW_RESET } from '../constants/productConstants';
 import { FaComments } from 'react-icons/fa';
 import { Helmet } from "react-helmet";
+import { Link, useHistory } from 'react-router-dom';
 
 
 import { getUserDetails, updateUserProfile } from '../actions/userActions'
@@ -28,8 +29,9 @@ import { deleteOrder } from '../actions/orderActions';
 import { ORDER_DELETE_REQUEST, ORDER_DELETE_SUCCESS, ORDER_DELETE_FAIL } from '../constants/orderConstants';
 
 
-function Header({ match, history}) {
-  
+function Header({ match}) {
+  const history = useHistory();
+
   const dispatch = useDispatch();
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
