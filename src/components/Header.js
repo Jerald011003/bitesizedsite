@@ -94,14 +94,22 @@ function Header({ match, history}) {
 
     }
   
-
+    useEffect(() => {
+      if (!userInfo) {
+        history.push('/login')
+      } else {
+        dispatch({ type: USER_UPDATE_PROFILE_RESET })
+        dispatch(listMyOrders())
+      }
+    }, [dispatch, history, userInfo])
   return (
     <header>
+      
        {/* <Helmet>
         <title>POPSICCLE</title>
         <link rel="icon" type="image/png" href="https://imgur.com/XDaKYpK.png" sizes="16x16" />
       </Helmet> */}
-      <Navbar bg="dark" variant="dark" expand="lg" style={{ height: '125px' }}>
+      <Navbar bg="dark" variant="dark" expand="lg" fixed-top>
         <Container>
           <LinkContainer to="/">
           <Navbar.Brand>
@@ -197,6 +205,7 @@ function Header({ match, history}) {
               
             </Nav>
 
+            <SearchBox submitHandler={submitHandler} />
 
             <Nav>
 
